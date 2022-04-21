@@ -1,11 +1,10 @@
+# ✌ Introduction
 
-# Overall Description
-
-## About Infokan
+### About Infokan
 
 Infokan merupakan sebuah sistem berbasis web untuk memberitahu pengguna jumlah pengunjung secara real time agar tidak terjadi kerumunan, khususnya saat pandemi, sehingga dapat melakukan dine-in dengan aman. Fitur yang diberikan antara lain jumlah pengunjung secara real time, lokasi restoran terdekat dengan GPS, pencarian restoran dengan beberapa metode, seperti pencarian kata kunci dan kategori.
 
-## Product Functions
+### Product Functions
 
 - Mempermudah pengguna menemukan restoran terdekat dengan fitur map
 - Mencari dan mengurutkan restoran dengan menggunakan beberapa kriteria
