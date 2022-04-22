@@ -20,3 +20,4 @@ tren yang sedang viral
    "laravel/framework": "5.8.*"
    ``` 
 * Clone this repo: ``` git clone https://github.com/amrimuf/infokan ```
+* Run ``` composer install ``` for installing all necessary packages
