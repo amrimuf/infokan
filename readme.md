@@ -21,3 +21,7 @@ tren yang sedang viral
    ``` 
 * Clone this repo: ``` git clone https://github.com/amrimuf/infokan ```
 * Run ``` composer install ``` for installing all necessary packages
+* Start XAMPP
+* Import Databasee
+* Set up env file
+* Run ``` php artisan serve ```
