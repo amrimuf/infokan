@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Kelompok 5 RBPL
+                    Kelompok 5 RBPL D
                 </div>
 
                 <div class="links">
