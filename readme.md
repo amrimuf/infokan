@@ -26,6 +26,7 @@ tren yang sedang viral
 * Set up env file
 * Run ``` php artisan serve ```
 #### Standar push github
+* git status
 * git add .
 * git commit -m "pesan commit mu"
 * git push (nama remote repo/link langsung) (nama branch) => ex: git push origin main
