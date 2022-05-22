@@ -34,6 +34,6 @@ tren yang sedang viral
 * git pull (remote repo/link) (nama branch) => ex: git pull origin main
 #### Branch
 * git branch => untuk mengecek branch, branch aktif akan di tandai dengan tanda bintang(*)
-* git checkout -b (nama branch) => digunakan untuk membuat brach baru pada local foldermu (jadi kalo belum di push branchnya belum ada di repo gitnya) 
+* git checkout -b (nama branch) => digunakan untuk membuat brach baru pada local foldermu (jadi kalo belum di push branchnya belum ada di repo gitnya) => ex: git checkout -b amri 
 * git checkout (nama branch) => digunankan untuk mengganti branch yang aktif saat ini
 
