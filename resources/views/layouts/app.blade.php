@@ -68,6 +68,12 @@
                             </li>
                         @endguest
                     </ul>
+                    <div class="search">
+                        <form action="/pegawai/cari" method="GET">
+                            <input type="text" class="form-control" name="cari" placeholder="Cari Restoran" value="{{ old('cari') }}">
+                            <input type="submit" class="btn btn-default" value="CARI">
+                        </form>
+                        </div>
                 </div>
             </div>
         </nav>

@@ -37,4 +37,18 @@ class HomeController extends Controller
         $menu = DB::table('menu')->join('restoran', 'restoran.id', '=', 'menu.restoran_id')->where('restoran.user_id', $id)->get();
         return view('restoran.detail', ['resto' => $resto, 'menu' => $menu]);
     }
+    public function cari(Request $request)
+	{
+
+		$cari = $request->cari;
+
+
+		$users = DB::table('users')
+		->where('name','like', "%" . $cari . "%")
+		->paginate();
+
+
+		return view('home',['users' => $users]);
+
+	}
 }
