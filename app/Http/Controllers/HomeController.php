@@ -24,7 +24,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $resto = DB::table('users')->paginate();
+        $resto = DB::table('users')
+            ->where('is_restoran', '=', '1')
+            ->paginate();
         return view('home', ['resto' => $resto]);
+    }
+
+    public function detail($id)
+    {
+        $resto = DB::table('users')
+        ->join('restoran', 'users.id', '=', 'restoran.user_id')->where('users.id', $id)->get();
+        $menu = DB::table('menu')->join('restoran', 'restoran.id', '=', 'menu.restoran_id')->where('restoran.user_id', $id)->get();
+        return view('restoran.detail', ['resto' => $resto, 'menu' => $menu]);
     }
 }

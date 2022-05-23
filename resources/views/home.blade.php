@@ -14,12 +14,19 @@
                         </div>
                     @endif
 
-                    You are logged in!
-                    @foreach($resto as $r)
-                    <tr>
-                        <td>{{ $r->name }}</td>
-                    </tr>
-                    @endforeach
+                    <div class="row">
+                        @foreach($resto as $r)
+                        <div class="col-sm-6">
+                          <div class="card">
+                            <div class="card-body">
+                              <h5 class="card-title">{{ $r->name }}</h5>
+                              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                              <a href="/resto/view/{{ $r->id }}" class="btn btn-primary">View Details</a>
+                            </div>
+                          </div>
+                        </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>
