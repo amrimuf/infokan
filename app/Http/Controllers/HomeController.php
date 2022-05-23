@@ -56,7 +56,7 @@ class HomeController extends Controller
     public function edit($id)
     {
         $resto = DB::table('restoran')->where('user_id', $id)->get();
-        return view('restoran.editrestoran', ['restoran' => $resto]);
+        return view('restoran.editrestoran', ['resto' => $resto]);
     }
 
     public function update(Request $request)
@@ -64,8 +64,8 @@ class HomeController extends Controller
         DB::table('restoran')->where('user_id', $request->user_id)->update([
             'deskripsi' => $request->deskripsi,
             'lokasi' => $request->lokasi,
-            'tersedia' => $request->kategori
+            'kategori' => $request->kategori
         ]);
-        return redirect('/restoran');
+        return redirect('/');
     }
 }
