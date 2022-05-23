@@ -51,4 +51,21 @@ class HomeController extends Controller
 		return view('home',['users' => $users]);
 
 	}
+
+    //sementara aku taruh sini ya
+    public function edit($id)
+    {
+        $resto = DB::table('restoran')->where('user_id', $id)->get();
+        return view('restoran.editrestoran', ['restoran' => $resto]);
+    }
+
+    public function update(Request $request)
+    {
+        DB::table('restoran')->where('user_id', $request->user_id)->update([
+            'deskripsi' => $request->deskripsi,
+            'lokasi' => $request->lokasi,
+            'tersedia' => $request->kategori
+        ]);
+        return redirect('/restoran');
+    }
 }
