@@ -25,12 +25,12 @@ tren yang sedang viral
 * Import Databasee
 * Set up env file
 * Run ``` php artisan serve ```
-#### Standar push github
+#### Standar push github (untuk upload ke github)
 * git status
 * git add .
 * git commit -m "pesan commit mu"
 * git push (nama remote repo/link langsung) (nama branch) => ex: git push origin main
-#### Pull request
+#### Pull request (untuk memindahkan dari github ke perangkat masing masing)
 * git pull (remote repo/link) (nama branch) => ex: git pull origin main
 #### Branch
 * git branch => untuk mengecek branch, branch aktif akan di tandai dengan tanda bintang(*)
