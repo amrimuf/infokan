@@ -6,11 +6,13 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title">{{ $r->name }}</h5>
-                    <p class="card-text">{{ $r->kategori }} </p>
-                    <p class="card-text">{{ $r->lokasi }} </p>
-                    <p class="card-text"><a href="#" class="btn btn-primary">Check in</a></p>
+                <div class="card text-center">
+                    <div class="card-header">
+                        <h5 class="card-title">{{ $r->name }}</h5>
+                        <p class="card text-center">{{ $r->kategori }} </p>
+                        <p class="card text-center">{{ $r->lokasi }} </p>
+                        <div class="card text-center"><a href="/checkinout" class="btn btn-primary">Check in/out</a></div>
+                    </div>
                 </div>
                 <div class="card-body">
                     @if (session('status'))
@@ -31,7 +33,7 @@
                             </div>
                         </div>
                         @endforeach
-                        @endforeach
+@endforeach
                     </div>
                 </div>
             </div>

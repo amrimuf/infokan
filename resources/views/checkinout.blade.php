@@ -2,31 +2,22 @@
 
 @section('content')
 
-<div id="reader" style="width: 600px"></div>
-<script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
-<script>
-function onScanSuccess(decodedText, decodedResult) {
-    // handle the scanned code as you like, for example:
-    console.log(`Code matched = ${decodedText}`, decodedResult);
+<?php
+if(isset($_GET['click']))
+{
+    date_default_timezone_set('Asia/Jakarta');
+    $date_clicked = date('Y-m-d H:i:s');
+    
 }
 
-function onScanFailure(error) {
-    // handle scan failure, usually better to ignore and keep scanning.
-    // for example:
-    console.warn(`Code scan error = ${error}`);
-}
-
-let html5QrcodeScanner = new Html5QrcodeScanner(
-    "reader", {
-        fps: 10,
-        qrbox: {
-            width: 250,
-            height: 250
-        }
-    },
-    /* verbose= */
-    false);
-html5QrcodeScanner.render(onScanSuccess, onScanFailure);
-</script>
+?>
+    <h2>Check in/out</h2>
+    <form action="#" method="GET">
+        <input type="text" name="checkin" class="checkin" value="<?php echo (isset($date_clicked))?$date_clicked:'';?>">
+        <button name="checkin" class="checkin btn btn-primary">Check in</button>
+        <button name="checkout" class="checkout btn btn-primary">Check out</button>
+        <a href="/" class="btn btn-primary"> Kembali</a>
+        <input type="submit" class="btn btn-primary" value="Simpan Data">
+    </form>
 
 @endsection
