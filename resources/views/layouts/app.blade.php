@@ -16,8 +16,10 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <div id="app">
@@ -68,12 +70,6 @@
                             </li>
                         @endguest
                     </ul>
-                    <div class="search">
-                        <form action="/pegawai/cari" method="GET">
-                            <input type="text" class="form-control" name="cari" placeholder="Cari Restoran" value="{{ old('cari') }}">
-                            <input type="submit" class="btn btn-default" value="CARI">
-                        </form>
-                        </div>
                 </div>
             </div>
         </nav>
