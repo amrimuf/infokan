@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\DB;
 
 class CheckInOutController extends Controller
 {
-    //by leo
-    // public function tambah()
+    // by leo
+    // public function display()
     // {
     //     return view('checkinout');
     // }

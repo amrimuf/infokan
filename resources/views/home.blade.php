@@ -32,7 +32,7 @@
             </div>
         </div>
     </div>
-    <form class="form-horizontal" action="#" method="post">
+    {{-- <form class="form-horizontal" action="#" method="post">
         {{ csrf_field() }}
         <div class="form-group">
                 <label for="dtpickerdemo" class="col-sm-2 control-label">Tanggal :</label>
@@ -53,5 +53,5 @@
         </div>
     </div>
 </div>
-</form>
+</form> --}}
 @endsection
