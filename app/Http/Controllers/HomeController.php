@@ -70,6 +70,8 @@ class HomeController extends Controller
         return redirect('/');
     }
 
+    // error handling
+
     // public function store()
     // {
     //     $resto = DB::table('check_in_out')

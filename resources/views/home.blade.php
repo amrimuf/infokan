@@ -40,6 +40,7 @@
                                                         additional content.</p>
                                                     <a href="/resto/view/{{ $r->id }}" class="btn btn-primary">View
                                                         Details</a>
+                                                        <a href="/resto/view/{{ $r->id }}" class="btn btn-primary">Edit</a>
                                                 </div>
                                             </div>
                                         </div>
