@@ -15,4 +15,3 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/resto/view/{id}', 'HomeController@detail');
-Route::post('/checkinout/store','NilaiController@store');

@@ -1,4 +1,5 @@
 @extends('layouts.app')
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -31,28 +32,26 @@
             </div>
         </div>
     </div>
-    <?php
-if(isset($_GET['checkin']))
-{
-    date_default_timezone_set('Asia/Jakarta');
-    $checkin_clicked = date('Y-m-d H:i:s');
-    
-}
-else if(isset($_GET['checkout']))
-{
-    date_default_timezone_set('Asia/Jakarta');
-    $checkout_clicked = date('Y-m-d H:i:s');
-}
-
-?>
-    <h2>Check in/out</h2>
-    <form action="#" method="GET">
-        <input type="text" name="checkin" class="checkin" value="<?php echo (isset($checkin_clicked))?$checkin_clicked:'';?>">
-        <button name="checkin" class="btn btn-primary">Check in</button>
-        <input type="text" name="checkout" class="checkout" >
-        <button name="checkout" class="btn btn-primary">Check out</button>
-        <a href="/" class="btn btn-primary"> Kembali</a>
-        <input type="submit" class="btn btn-primary" value="Simpan Data">
+    <form class="form-horizontal" action="#" method="post">
+        {{ csrf_field() }}
+        <div class="form-group">
+                <label for="dtpickerdemo" class="col-sm-2 control-label">Tanggal :</label>
+                <div class="col-sm-6">
+                    <div class='col-sm-6 input-group date ' id='dtpickerdemo'>
+                        <input type='text' class="form-control" name="tgl">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+                <script type="text/javascript">
+                    $(function () {
+                        $('#dtpickerdemo').datetimepicker({format : "YYYY-MM-DD hh:mm", "defaultDate":new Date() });
+                    });
+                </script>
+        </div>
+    </div>
     </form>
 </div>
 @endsection
