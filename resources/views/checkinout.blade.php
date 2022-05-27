@@ -1,32 +1,30 @@
 @extends('layouts.app')
 
 @section('content')
+check in out button
+<?php
+if(isset($_GET['checkin']))
+{
+     date_default_timezone_set('Asia/Jakarta');
+     $checkin_clicked = date('Y-m-d H:i:s');
+    
+ }
+ else if(isset($_GET['checkout']))
+ {
+     date_default_timezone_set('Asia/Jakarta');
+     $checkout_clicked = date('Y-m-d H:i:s');
+ }
 
-<div id="reader" style="width: 600px"></div>
-<script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
-<script>
-function onScanSuccess(decodedText, decodedResult) {
-    // handle the scanned code as you like, for example:
-    console.log(`Code matched = ${decodedText}`, decodedResult);
-}
+ ?>
+    <h2>Check in/out</h2>
+    <form action="#" method="GET">
+        <input type="text" name="checkin" value="<?php echo (isset($checkin_clicked))?$checkin_clicked:'';?>">
+        <button name="checkin" class="btn btn-primary">Check in</button>
+        <input type="text" name="checkout" value="<?php echo (isset($checkout_clicked))?$checkout_clicked:'';?>">
+        <button name="checkout" class="btn btn-primary">Check out</button>
+        <a href="/" class="btn btn-primary"> Kembali</a>
+        <input type="submit" class="btn btn-primary" value="Simpan Data">
+    </form>
 
-function onScanFailure(error) {
-    // handle scan failure, usually better to ignore and keep scanning.
-    // for example:
-    console.warn(`Code scan error = ${error}`);
-}
-
-let html5QrcodeScanner = new Html5QrcodeScanner(
-    "reader", {
-        fps: 10,
-        qrbox: {
-            width: 250,
-            height: 250
-        }
-    },
-    /* verbose= */
-    false);
-html5QrcodeScanner.render(onScanSuccess, onScanFailure);
-</script>
 
 @endsection

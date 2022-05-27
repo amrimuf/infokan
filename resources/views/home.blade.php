@@ -50,4 +50,28 @@
                     </div>
                 </div>
             </div>
-        @endsection
+        </div>
+    </div>
+    {{-- <form class="form-horizontal" action="#" method="post">
+        {{ csrf_field() }}
+        <div class="form-group">
+                <label for="dtpickerdemo" class="col-sm-2 control-label">Tanggal :</label>
+                <div class="col-sm-6">
+                    <div class='col-sm-6 input-group date ' id='dtpickerdemo'>
+                        <input type='text' class="form-control" name="tgl">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+                <script type="text/javascript">
+                    $(function () {
+                        $('#dtpickerdemo').datetimepicker({format : "YYYY-MM-DD hh:mm", "defaultDate":new Date() });
+                    });
+                </script>
+        </div>
+    </div>
+</div>
+</form> --}}
+@endsection

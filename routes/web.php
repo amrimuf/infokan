@@ -19,3 +19,4 @@ Route::get('/layouts/app','HomeController@cari');
 
 Route::get('/restoran/edit/{id}','HomeController@edit');
 Route::post('/restoran/update','HomeController@update');
+Route::get('/checkinout', 'CheckInOutController@display');
