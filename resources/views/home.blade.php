@@ -52,6 +52,6 @@
                 </script>
         </div>
     </div>
-    </form>
 </div>
+</form>
 @endsection
