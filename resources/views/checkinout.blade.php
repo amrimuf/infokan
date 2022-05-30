@@ -1,19 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-check in out button
+<!-- check in out button -->
 <?php
 if(isset($_GET['checkin']))
 {
-     date_default_timezone_set('Asia/Jakarta');
-     $checkin_clicked = date('Y-m-d H:i:s');
+    date_default_timezone_set('Asia/Jakarta');
+    $checkin_clicked = date('Y-m-d H:i:s');
     
- }
- else if(isset($_GET['checkout']))
- {
-     date_default_timezone_set('Asia/Jakarta');
-     $checkout_clicked = date('Y-m-d H:i:s');
- }
+}
+else if(isset($_GET['checkout']))
+{
+    date_default_timezone_set('Asia/Jakarta');
+    $checkout_clicked = date('Y-m-d H:i:s');
+}
 
  ?>
     <h2>Check in/out</h2>

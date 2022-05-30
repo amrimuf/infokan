@@ -36,8 +36,7 @@
                                                 <div class="card-body">
                                                     <h5 class="card-title">{{ $r->name }}</h5>
                                                     <p class="card-text">With supporting text below as a natural
-                                                        lead-in to
-                                                        additional content.</p>
+                                                        lead-in to additional content.</p>
                                                     <a href="/resto/view/{{ $r->id }}" class="btn btn-primary">View
                                                         Details</a>
                                                         <a href="/resto/edit/{{ $r->id }}" class="btn btn-primary">Edit</a>

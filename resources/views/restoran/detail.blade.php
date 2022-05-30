@@ -11,6 +11,8 @@
                         <h5 class="card-title">{{ $r->name }}</h5>
                         <p class="card text-center">{{ $r->kategori }} </p>
                         <p class="card text-center">{{ $r->lokasi }} </p>
+                        <p class="card text-center">{{ $r->deskripsi }} </p>
+                        <a href="/ulasan" class="btn btn-primary" > Reviews</a>
                         {{-- <div class="card text-center"><a href="/checkinout" class="btn btn-primary">Check in/out</a></div> --}}
                         <?php
 if(isset($_GET['checkin']))
@@ -50,8 +52,6 @@ if(isset($_GET['checkin']))
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $m->nama }}</h5>
-                                    <p class="card-text">{{ $r->deskripsi }}</p>
-
                                 </div>
                             </div>
                         </div>
