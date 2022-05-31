@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<a href="/ulasan/tambah" class="btn btn-primary" > +</a>
 	<br/>
 	<br/>
 	<table class="table">
@@ -18,8 +19,6 @@
             <td>{{ $r->name }}</td>
 			<td>{{ $r->review }}</td>
 			<td>
-				<a href="/ulasan/tambah" class="btn btn-primary" > +</a>
-				|
 				<a href="/ulasan/edit/{{ $r->id }}" class="btn btn-warning" >Edit</a>
 				|
 				<a href="/ulasan/hapus/{{ $r->id }}" class="btn btn-danger" >Hapus</a>
