@@ -12,10 +12,17 @@
                             <div class="panel-body">
                                 <div class="form-group my-flex">
                                     <div class="input-container">
-                                        <input type="text" class="form-control" name="cari" placeholder="Cari Restoran"
-                                            value="{{ old('cari') }}">
+                                        <div class="row">
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" name="cari"
+                                                    placeholder="Cari Restoran" value="{{ old('cari') }}">
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <input type="submit" class="btn btn-default" value="CARI">
+                                            </div>
+                                        </div>
                                     </div>
-                                    <input type="submit" class="btn btn-default" value="CARI">
+
                                 </div>
 
                                 </form>
@@ -40,7 +47,8 @@
                                                         additional content.</p>
                                                     <a href="/resto/view/{{ $r->id }}" class="btn btn-primary">View
                                                         Details</a>
-                                                        <a href="/resto/edit/{{ $r->id }}" class="btn btn-primary">Edit</a>
+                                                    <a href="/resto/edit/{{ $r->id }}"
+                                                        class="btn btn-primary">Edit</a>
                                                 </div>
                                             </div>
                                         </div>

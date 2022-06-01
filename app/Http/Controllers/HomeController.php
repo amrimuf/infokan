@@ -37,7 +37,7 @@ class HomeController extends Controller
         $menu = DB::table('menu')->join('restoran', 'restoran.id', '=', 'menu.restoran_id')->where('restoran.user_id', $id)->get();
         return view('restoran.detail', ['resto' => $resto, 'menu' => $menu]);
     }
-    // by galih unfinished
+    // galih unfinished
     public function cari(Request $request)
 	{
 
