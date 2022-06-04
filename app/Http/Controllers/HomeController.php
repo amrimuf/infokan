@@ -32,10 +32,11 @@ class HomeController extends Controller
 
     public function detail($id)
     {
+        $idresto = DB::table('ulasan')->where('restoran_id', $id)->get();
         $resto = DB::table('users')
         ->join('restoran', 'users.id', '=', 'restoran.user_id')->where('users.id', $id)->get();
         $menu = DB::table('menu')->join('restoran', 'restoran.id', '=', 'menu.restoran_id')->where('restoran.user_id', $id)->get();
-        return view('restoran.detail', ['resto' => $resto, 'menu' => $menu]);
+        return view('restoran.detail', ['resto' => $resto, 'menu' => $menu, 'idresto'=>$idresto]);
     }
     // by galih unfinished
     public function cari(Request $request)
@@ -45,7 +46,7 @@ class HomeController extends Controller
 
 
 		$users = DB::table('users')
-		->where('name','like', "%" . $cari . "%")
+		->where('name','like',"%".$cari."%")
 		->paginate();
 
 

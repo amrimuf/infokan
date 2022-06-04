@@ -12,7 +12,7 @@
                         <p class="card text-center">{{ $r->kategori }} </p>
                         <p class="card text-center">{{ $r->lokasi }} </p>
                         <p class="card text-center">{{ $r->deskripsi }} </p>
-                        <a href="/ulasan" class="btn btn-primary" > Reviews</a>
+                        <a href="/ulasan/{{$r->user_id}}" class="btn btn-primary" > Reviews</a>
                         {{-- <div class="card text-center"><a href="/checkinout" class="btn btn-primary">Check in/out</a></div> --}}
                         <?php
 if(isset($_GET['checkin']))

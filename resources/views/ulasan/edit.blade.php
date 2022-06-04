@@ -12,8 +12,7 @@
 @section('content')
 
 
-<form action="/ulasan/update" method="post">
-    {{ csrf_field() }}
+
     {{-- <div class="form-group row">
         <label class="col-sm-2" for="nrp">NRP </label>
         <div class="col-sm-6">
@@ -28,6 +27,8 @@
         </div>
     </div> --}}
 @foreach ($ulasan as $u)
+<form action="/ulasan/update/{{$u->user_id}}" method="post">
+    {{ csrf_field() }}
 <input type="hidden" name="id" value="{{ $u->id }}"> <br/>
     <div class="form-group row">
         <label class="col-sm-2"> Review </label>
@@ -38,7 +39,7 @@
 
     <div class="d-flex text-center">
              <button type="submit" class="btn btn-primary"> Simpan Data </button>
-             <a href="/ulasan" class="btn btn-primary"> Kembali </a>
+             <a href="/ulasan/{{$u->user_id}}" class="btn btn-primary"> Kembali </a>
     </div>
 
 </form>

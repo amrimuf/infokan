@@ -9,16 +9,19 @@ class UlasanController extends Controller
 {
     //by leo
     
-    public function index()
+    public function index($id)
+    {   
+        $review = DB::table('ulasan')
+        ->join('users', 'ulasan.user_id', '=', 'users.id')
+        ->where('restoran_id', $id)->get();
+        return view('ulasan.index', ['ulasan' => $review]);
+    }
+    public function tambah($id)
     {
         $review = DB::table('ulasan')
         ->join('users', 'ulasan.user_id', '=', 'users.id')
-        ->paginate();
-        return view('ulasan.index', ['ulasan' => $review]);
-    }
-    public function tambah()
-    {
-        return view('ulasan.tambah');
+        ->where('restoran_id', $id)->get();
+        return view('ulasan.tambah', ['ulasan' => $review]);
     }
 
     public function store(Request $request)
@@ -26,28 +29,28 @@ class UlasanController extends Controller
         DB::table('ulasan')->insert([
             'review' => $request->review
         ]);
-        return redirect('/');
+        return redirect('/ulasan');
     }
 
     public function edit($id)
     {
-        $ulasan = DB::table('ulasan')->where('id', $id)->get();
+        $ulasan = DB::table('ulasan')->where('restoran_id', $id)->get();
         return view('ulasan.edit', ['ulasan' => $ulasan]);
     }
 
     public function update(Request $request)
     {
-        DB::table('ulasan')->where('id', $request->id)->update([
-            DB::table('ulasan')->insert([
+        DB::table('ulasan')->where('restoran_id', $request->id)->update([
+            
                 'review' => $request->review
-            ])
+            
             ]);
-            return redirect('/');
+            return redirect('/ulasan');
     }
 
     public function hapus($id)
     {
         DB::table('ulasan')->where('id', $id)->delete();
-        return redirect('/');
+        return redirect('/ulasan');
     }
 }

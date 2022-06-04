@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<a href="/ulasan/tambah" class="btn btn-primary" > +</a>
+
+<a href="/ulasan/tambah/$restoran_id" class="btn btn-primary" > +</a>
+
 	<br/>
 	<br/>
 	<table class="table">
@@ -13,7 +15,7 @@
 			<th>Option</th>
 		</tr>
 		</thead>
-		@foreach($ulasan as $r)
+		@foreach($ulasan as $r)	
 		<tr>
             <td>{{ $loop->iteration }}</td>
             <td>{{ $r->name }}</td>
