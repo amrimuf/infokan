@@ -32,11 +32,11 @@ class HomeController extends Controller
 
     public function detail($id)
     {
-        $idresto = DB::table('ulasan')->where('restoran_id', $id)->get();
+        
         $resto = DB::table('users')
         ->join('restoran', 'users.id', '=', 'restoran.user_id')->where('users.id', $id)->get();
         $menu = DB::table('menu')->join('restoran', 'restoran.id', '=', 'menu.restoran_id')->where('restoran.user_id', $id)->get();
-        return view('restoran.detail', ['resto' => $resto, 'menu' => $menu, 'idresto'=>$idresto]);
+        return view('restoran.detail', ['resto' => $resto, 'menu' => $menu]);
     }
     // by galih unfinished
     public function cari(Request $request)
@@ -70,6 +70,46 @@ class HomeController extends Controller
         ]);
         return redirect('/');
     }
+
+    //by leo
+    public function upload(){
+		return view('upload');
+	}
+ 
+	public function proses_upload(Request $request){
+		$this->validate($request, [
+			'file' => 'required',
+			'keterangan' => 'required',
+		]);
+ 
+		// menyimpan data file yang diupload ke variabel $file
+		$file = $request->file('file');
+ 
+      	        // nama file
+		echo 'File Name: '.$file->getClientOriginalName();
+		echo '<br>';
+ 
+      	        // ekstensi file
+		echo 'File Extension: '.$file->getClientOriginalExtension();
+		echo '<br>';
+ 
+      	        // real path
+		echo 'File Real Path: '.$file->getRealPath();
+		echo '<br>';
+ 
+      	        // ukuran file
+		echo 'File Size: '.$file->getSize();
+		echo '<br>';
+ 
+      	        // tipe mime
+		echo 'File Mime Type: '.$file->getMimeType();
+ 
+      	        // isi dengan nama folder tempat kemana file diupload
+		$tujuan_upload = 'data_file';
+ 
+                // upload file
+		$file->move($tujuan_upload,$file->getClientOriginalName());
+	}
 
     // error handling
 

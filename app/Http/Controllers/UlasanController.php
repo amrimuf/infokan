@@ -34,7 +34,7 @@ class UlasanController extends Controller
 
     public function edit($id)
     {
-        $ulasan = DB::table('ulasan')->where('restoran_id', $id)->get();
+        $ulasan = DB::table('ulasan')->where('user_id', $id)->get();
         return view('ulasan.edit', ['ulasan' => $ulasan]);
     }
 
@@ -50,7 +50,7 @@ class UlasanController extends Controller
 
     public function hapus($id)
     {
-        DB::table('ulasan')->where('id', $id)->delete();
-        return redirect('/ulasan');
+        DB::table('ulasan')->where('user_id', $id)->delete();
+        return redirect()->back();
     }
 }
