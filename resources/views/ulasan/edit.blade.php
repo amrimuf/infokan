@@ -39,7 +39,7 @@
 
     <div class="d-flex text-center">
              <button type="submit" class="btn btn-primary"> Simpan Data </button>
-             <a href="/ulasan/{{$u->user_id}}" class="btn btn-primary"> Kembali </a>
+             <a href="/ulasan/{{$u->restoran_id}}" class="btn btn-primary"> Kembali </a>
     </div>
 
 </form>

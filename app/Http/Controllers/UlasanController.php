@@ -29,7 +29,7 @@ class UlasanController extends Controller
         DB::table('ulasan')->insert([
             'review' => $request->review
         ]);
-        return redirect('/ulasan');
+        return redirect('/ulasan')->back();;
     }
 
     public function edit($id)
