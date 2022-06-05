@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+// use Stevebauman\Location\Facades\Location; buat load package user location
 
 class HomeController extends Controller
 {
@@ -24,6 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // dd(Location::get('118.99.76.133')); ip buat user's location
         $resto = DB::table('users')
             ->where('is_restoran', '=', '1')
             ->paginate();
