@@ -24,10 +24,12 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $ip = request()->ip() || '114.125.79.173'; //Dynamic IP address get
+        $data = \Location::get($ip);                
         $resto = DB::table('users')
             ->where('is_restoran', '=', '1')
             ->paginate();
-        return view('home', ['resto' => $resto]);
+        return view('home', ['resto' => $resto], ['data' => $data]);
     }
 
     public function detail($id)
@@ -59,6 +61,16 @@ class HomeController extends Controller
     {
         $resto = DB::table('restoran')->where('user_id', $id)->get();
         return view('restoran.editrestoran', ['resto' => $resto]);
+    }
+
+    public function tambahmenu(Request $request)
+    {
+        DB::table('menu')->insert([
+            'restoran_id' => $request->user_id,
+            'nama' => $request->menu,
+        ]);
+
+        return redirect()->back();
     }
 
     public function update(Request $request)

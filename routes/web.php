@@ -31,3 +31,5 @@ Route::get('/ulasan/hapus/{id}','UlasanController@hapus');
 
 Route::get('/upload', 'HomeController@upload');
 Route::post('/upload/proses', 'HomeController@proses_upload');
+
+Route::post('/menu/store/{id}', 'HomeController@tambahmenu');

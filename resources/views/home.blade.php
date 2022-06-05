@@ -20,6 +20,10 @@
                                     </div>
                                     </form>
                                 </div>
+                                {{-- <h3>IP: {{ $data->ip }}</h3> --}}
+                                <h5>Your Location: {{ $data->cityName }},{{ $data->regionName }},{{ $data->countryName }},{{ $data->zipCode }}</h3>
+                                <p>Latitude: {{ $data->latitude }}, Longitude: {{ $data->longitude }}</p>
+                                </div>
                                 <div class="card-header">Daftar Restoran</div>
 
                                 <div class="card-body">
