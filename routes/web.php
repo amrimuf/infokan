@@ -22,11 +22,11 @@ Route::post('/restoran/update','HomeController@update');
 Route::get('/checkinout', 'CheckInOutController@display');
 
 //by leo
-Route::get('/ulasan/{id}','UlasanController@index');
+Route::get('/ulasan/{id}','UlasanController@index')->name('ulasan');
 Route::get('/ulasan/tambah/{id}','UlasanController@tambah');
-Route::post('/ulasan/store{id}','UlasanController@create');
+Route::post('/ulasan/store/{id}','UlasanController@store');
 Route::get('/ulasan/edit/{id}','UlasanController@edit');
-Route::post('/ulasan/update{id}','UlasanController@update');
+Route::post('/ulasan/update/{id}','UlasanController@update');
 Route::get('/ulasan/hapus/{id}','UlasanController@hapus');
 
 Route::get('/upload', 'HomeController@upload');

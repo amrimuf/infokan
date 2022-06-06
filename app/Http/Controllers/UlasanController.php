@@ -11,46 +11,47 @@ class UlasanController extends Controller
     
     public function index($id)
     {   
-        $review = DB::table('ulasan')
-        ->join('users', 'ulasan.user_id', '=', 'users.id')
-        ->where('restoran_id', $id)->get();
-        return view('ulasan.index', ['ulasan' => $review]);
+        $review = DB::table('ulasan')->get();
+        $user = DB::table('users')->get();
+        return view('ulasan.index', compact('id', 'review', 'user'));
     }
     public function tambah($id)
     {
-        $review = DB::table('ulasan')
-        ->join('users', 'ulasan.user_id', '=', 'users.id')
-        ->where('restoran_id', $id)->get();
-        return view('ulasan.tambah', ['ulasan' => $review]);
+        $ulasan = DB::table('ulasan')->where('id', $id)->get();
+        return view('ulasan.tambah', compact('ulasan', 'id'));
     }
 
     public function store(Request $request)
     {
         DB::table('ulasan')->insert([
-            'review' => $request->review
+            'review' => $request->review,
+            'user_id' => $request->user_id,
+            'restoran_id' => $request->restoran_id
         ]);
-        return redirect('/ulasan')->back();;
+        return redirect()->route('ulasan', ['restoran_id' => $request->restoran_id]);
     }
 
     public function edit($id)
     {
-        $ulasan = DB::table('ulasan')->where('user_id', $id)->get();
+        $ulasan = DB::table('ulasan')->where('id', $id)->get();
         return view('ulasan.edit', ['ulasan' => $ulasan]);
     }
 
     public function update(Request $request)
     {
-        DB::table('ulasan')->where('restoran_id', $request->id)->update([
+        DB::table('ulasan')->where('id', $request->id)->update([
             
                 'review' => $request->review
             
             ]);
-            return redirect('/ulasan');
+        return redirect()->route('ulasan', ['id' => $request->restoran_id]);
+        // return dd($request->restoran_id);
+
     }
 
     public function hapus($id)
     {
-        DB::table('ulasan')->where('user_id', $id)->delete();
+        DB::table('ulasan')->where('id', $id)->delete();
         return redirect()->back();
     }
 }

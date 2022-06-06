@@ -1,20 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
-@foreach($resto as $r)
+@foreach($user as $u)
+@if($u->id == $id)
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card text-center">
                     <div class="card-header">
-                        <h5 class="card-title">{{ $r->name }}</h5>
+                        {{-- <p>{{ $u->id }}</p> --}}
+                        @foreach($resto as $r)
+                        @if($r->user_id == $u->id)
+                        <h5 class="card-title">{{ $u->name }}</h5>
                         <p class="card text-center">{{ $r->kategori }} </p>
                         <p class="card text-center">{{ $r->lokasi }} </p>
                         <p class="card text-center">{{ $r->deskripsi }} </p>
                         <a href="/ulasan/{{$r->user_id}}" class="btn btn-primary" > Reviews</a>
                         {{-- <div class="card text-center"><a href="/checkinout" class="btn btn-primary">Check in/out</a></div> --}}
-                        
+                        @endif
+                        @endforeach
                         <?php
                         if(isset($_GET['checkin']))
                         {
@@ -49,16 +54,20 @@
 
                         <div class="row">
                             @foreach($menu as $m)
+                            @if($m->restoran_id == $id)
                             <div class="col-sm-6">
                                 <div class="card">
                                     <div class="card-body">
+                                        {{-- {{ $m->restoran_id }} --}}
                                         <h5 class="card-title">{{ $m->nama }}</h5>
                                     </div>
                                 </div>
                             </div>
+                            @endif
                             @endforeach 
                         </div>
-                        <form action="/menu/store/{{$r->id}}" method="post">
+                        @if( Auth::id() == $id)
+                        <form action="/menu/store/{{$id}}" method="post">
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <div class="col-sm-2 control-label"><b>Menu baru </b></div>
@@ -66,13 +75,15 @@
                                     <input type="text" class="form-control" name="menu" required="required"> <br />
                                 </div>
                             </div>
-                            <input type="hidden" name="user_id" value="{{ $r->user_id }}">
+                            <input type="hidden" name="user_id" value="{{ $id }}">
                             <input type="submit" class="btn btn-primary" value="Tambah menu">
                         </form>   
+                        @endif
                     </div>
                 </div>
             </div>
     </div>
 </div>
+@endif
 @endforeach
 @endsection

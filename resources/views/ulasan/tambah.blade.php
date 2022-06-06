@@ -11,8 +11,8 @@
 </style>
 @section('content')
 
-
-<form action="/ulasan/store" method="post">
+{{-- @foreach ($ulasan as $u) --}}
+<form action="/ulasan/store/{{$id}}" method="post">
     {{ csrf_field() }}
     {{-- <div class="form-group row">
         <label class="col-sm-2" for="nrp">NRP </label>
@@ -27,7 +27,9 @@
             <input type="text"  class="form-control" name="nilaiangka" required="required">
         </div>
     </div> --}}
-
+    {{-- <input type="hidden" name="id" value="{{ $id }}"> <br/> --}}
+    <input type="hidden" name="user_id" value="{{ Auth::id() }}"> <br/>
+    <input type="hidden" name="restoran_id" value="{{ $id }}"> <br/>
     <div class="form-group row">
         <label class="col-sm-2" for="sks"> Review </label>
         <div class="col-sm-10">
@@ -41,5 +43,5 @@
     </div>
 
 </form>
-
+{{-- @endforeach --}}
 @endsection

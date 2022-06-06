@@ -26,19 +26,22 @@ class HomeController extends Controller
     {
         $ip = request()->ip() || '114.125.79.173'; //Dynamic IP address get
         $data = \Location::get($ip);                
-        $resto = DB::table('users')
+        $resto = DB::table('restoran')->get();
+        $user = DB::table('users')
             ->where('is_restoran', '=', '1')
             ->paginate();
-        return view('home', ['resto' => $resto], ['data' => $data]);
+        return view('home', compact('data', 'resto', 'user'));
     }
 
     public function detail($id)
     {
-        
-        $resto = DB::table('users')
-        ->join('restoran', 'users.id', '=', 'restoran.user_id')->where('users.id', $id)->get();
-        $menu = DB::table('menu')->join('restoran', 'restoran.id', '=', 'menu.restoran_id')->where('restoran.user_id', $id)->get();
-        return view('restoran.detail', ['resto' => $resto, 'menu' => $menu]);
+        $user = DB::table('users')->get();
+        $resto = DB::table('restoran')->get();
+        // $resto = DB::table('users')
+        // ->join('restoran', 'users.id', '=', 'restoran.user_id')->where('users.id', $id)->get();
+        // $menu = DB::table('menu')->join('restoran', 'restoran.id', '=', 'menu.restoran_id')->where('restoran.user_id', $id)->get();
+        $menu = DB::table('menu')->get();
+        return view('restoran.detail',  compact('menu', 'resto', 'user', 'id'));
     }
     // galih unfinished
     public function cari(Request $request)
