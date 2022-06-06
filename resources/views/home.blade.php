@@ -83,6 +83,7 @@
 			</div>
 		</div>
 	</div>
+    <!-- end of upload foto -->
         </div>
         <!-- <form class="form-horizontal" action="#" method="post">
         {{ csrf_field() }}
