@@ -27,9 +27,10 @@
         </div>
     </div> --}}
 @foreach ($ulasan as $u)
-<form action="/ulasan/update/{{$u->user_id}}" method="post">
+<form action="/ulasan/update/{{$u->id}}" method="post">
     {{ csrf_field() }}
 <input type="hidden" name="id" value="{{ $u->id }}"> <br/>
+<input type="hidden" name="restoran_id" value="{{ $u->restoran_id }}"> <br/>
     <div class="form-group row">
         <label class="col-sm-2"> Review </label>
         <div class="col-sm-10">

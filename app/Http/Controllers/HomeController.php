@@ -24,21 +24,26 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $resto = DB::table('users')
+        $ip = request()->ip() || '114.125.79.173'; //Dynamic IP address get
+        $data = \Location::get($ip);                
+        $resto = DB::table('restoran')->get();
+        $user = DB::table('users')
             ->where('is_restoran', '=', '1')
             ->paginate();
-        return view('home', ['resto' => $resto]);
+        return view('home', compact('data', 'resto', 'user'));
     }
 
     public function detail($id)
     {
-        
-        $resto = DB::table('users')
-        ->join('restoran', 'users.id', '=', 'restoran.user_id')->where('users.id', $id)->get();
-        $menu = DB::table('menu')->join('restoran', 'restoran.id', '=', 'menu.restoran_id')->where('restoran.user_id', $id)->get();
-        return view('restoran.detail', ['resto' => $resto, 'menu' => $menu]);
+        $user = DB::table('users')->get();
+        $resto = DB::table('restoran')->get();
+        // $resto = DB::table('users')
+        // ->join('restoran', 'users.id', '=', 'restoran.user_id')->where('users.id', $id)->get();
+        // $menu = DB::table('menu')->join('restoran', 'restoran.id', '=', 'menu.restoran_id')->where('restoran.user_id', $id)->get();
+        $menu = DB::table('menu')->get();
+        return view('restoran.detail',  compact('menu', 'resto', 'user', 'id'));
     }
-    // by galih unfinished
+    // galih unfinished
     public function cari(Request $request)
 	{
 
@@ -59,6 +64,22 @@ class HomeController extends Controller
     {
         $resto = DB::table('restoran')->where('user_id', $id)->get();
         return view('restoran.editrestoran', ['resto' => $resto]);
+    }
+
+    public function tambahmenu(Request $request)
+    {
+        $file = $request->file('file');
+        DB::table('menu')->insert([
+            'restoran_id' => $request->user_id,
+            'nama' => $request->menu,
+            'gambar' => $file->getClientOriginalName()
+        ]);
+        // isi dengan nama folder tempat kemana file diupload
+            $tujuan_upload = 'data_file';
+
+            // upload file
+          $file->move($tujuan_upload,$file->getClientOriginalName());
+        return redirect()->back();
     }
 
     public function update(Request $request)

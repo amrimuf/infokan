@@ -20,6 +20,12 @@
                                     </div>
                                     </form>
                                 </div>
+
+                                <h2>Halo, {{ Auth::user()->name }}!</h2>
+                                {{-- <h3>IP: {{ $data->ip }}</h3> --}}
+                                <h5>Your Location: {{ $data->cityName }},{{ $data->regionName }},{{ $data->countryName }},{{ $data->zipCode }}</h3>
+                                <p>Latitude: {{ $data->latitude }}, Longitude: {{ $data->longitude }}</p>
+                                </div>
                                 <div class="card-header">Daftar Restoran</div>
 
                                 <div class="card-body">
@@ -30,16 +36,22 @@
                                     @endif
 
                                     <div class="row">
-                                        @foreach ($resto as $r)
+                                        @foreach ($user as $u)
                                         <div class="col-sm-6">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h5 class="card-title">{{ $r->name }}</h5>
-                                                    <p class="card-text">With supporting text below as a natural
-                                                        lead-in to additional content.</p>
-                                                    <a href="/resto/view/{{ $r->id }}" class="btn btn-primary">View
+                                                    <h5 class="card-title">{{ $u->name }}</h5>
+                                                    {{-- <p>{{ $u->id }}</p> --}}
+                                                    @foreach ($resto as $r)
+                                                    @if ($r->user_id == $u->id)
+                                                    <p class="card-text">Alamat: {{ $r->lokasi }}</p>
+                                                    <a href="/resto/view/{{ $u->id }}" class="btn btn-primary">View
                                                         Details</a>
-                                                    <a href="/resto/edit/{{ $r->id }}" class="btn btn-primary">Edit</a>
+                                                        @if (Auth::id() == $u->id)
+                                                    <a href="/resto/edit/{{ $u->id }}" class="btn btn-primary">Edit</a>
+                                                        @endif
+                                                    @endif
+                                                    @endforeach
                                                 </div>
                                             </div>
                                         </div>
@@ -52,7 +64,7 @@
                 </div>
             </div>
             <!-- upload foto by leo -->
-            <div class="row">
+            {{-- <div class="row">
 		<div class="container">
 			
 			<div class="col-lg-8 mx-auto my-5">	
@@ -83,8 +95,7 @@
 			</div>
 		</div>
 	</div>
-    <!-- end of upload foto -->
-        </div>
+        </div> --}}
         <!-- <form class="form-horizontal" action="#" method="post">
         {{ csrf_field() }}
     <div class="form-group">
