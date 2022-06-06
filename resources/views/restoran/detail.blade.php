@@ -34,6 +34,7 @@
                         }
 
                         ?>
+                        @if(Auth::user()->is_restoran !== 1)
                         <h2>Check in/out</h2>
                         <form action="#" method="GET">
                             <input type="text" name="checkin" value="<?php echo (isset($checkin_clicked))?$checkin_clicked:'';?>">
@@ -43,6 +44,7 @@
                             {{-- <a href="/" class="btn btn-primary"> Kembali</a> --}}
                             <input type="submit" class="btn btn-primary" value="Simpan Data">
                         </form>
+                        @endif
             </div>
                 </div>
                     <div class="card-body">
