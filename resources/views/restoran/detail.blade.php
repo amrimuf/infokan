@@ -59,6 +59,8 @@
                                 <div class="card">
                                     <div class="card-body">
                                         {{-- {{ $m->restoran_id }} --}}
+                                        {{-- {{$m->gambar}} --}}
+                                        <img src="{{ asset('data_file/'.$m->gambar) }} " width="50px" height="50px">
                                         <h5 class="card-title">{{ $m->nama }}</h5>
                                     </div>
                                 </div>
@@ -67,10 +69,12 @@
                             @endforeach 
                         </div>
                         @if( Auth::id() == $id)
-                        <form action="/menu/store/{{$id}}" method="post">
+                        <form action="/menu/store/{{$id}}" method="post" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <div class="col-sm-2 control-label"><b>Menu baru </b></div>
+                                <b>File Gambar</b><br/>
+                                <input type="file" name="file">
                                 <div class="col-sm-4 input-group date" id="menu">
                                     <input type="text" class="form-control" name="menu" required="required"> <br />
                                 </div>
@@ -79,6 +83,21 @@
                             <input type="submit" class="btn btn-primary" value="Tambah menu">
                         </form>   
                         @endif
+                        {{-- <form action="/upload/proses" method="POST" enctype="multipart/form-data">
+                            {{ csrf_field() }}
+         
+                            <div class="form-group">
+                                <b>File Gambar</b><br/>
+                                <input type="file" name="file">
+                            </div>
+         
+                            <div class="form-group">
+                                <b>Keterangan</b>
+                                <textarea class="form-control" name="keterangan"></textarea>
+                            </div>
+         
+                            <input type="submit" value="Upload" class="btn btn-primary">
+                        </form> --}}
                     </div>
                 </div>
             </div>

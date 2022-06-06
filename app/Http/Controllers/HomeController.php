@@ -68,11 +68,17 @@ class HomeController extends Controller
 
     public function tambahmenu(Request $request)
     {
+        $file = $request->file('file');
         DB::table('menu')->insert([
             'restoran_id' => $request->user_id,
             'nama' => $request->menu,
+            'gambar' => $file->getClientOriginalName()
         ]);
+        // isi dengan nama folder tempat kemana file diupload
+            $tujuan_upload = 'data_file';
 
+            // upload file
+          $file->move($tujuan_upload,$file->getClientOriginalName());
         return redirect()->back();
     }
 

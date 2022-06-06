@@ -64,7 +64,7 @@
                 </div>
             </div>
             <!-- upload foto by leo -->
-            <div class="row">
+            {{-- <div class="row">
 		<div class="container">
 			
 			<div class="col-lg-8 mx-auto my-5">	
@@ -95,7 +95,7 @@
 			</div>
 		</div>
 	</div>
-        </div>
+        </div> --}}
         <!-- <form class="form-horizontal" action="#" method="post">
         {{ csrf_field() }}
     <div class="form-group">
