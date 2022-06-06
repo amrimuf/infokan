@@ -26,7 +26,17 @@
             <input type="text"  class="form-control" name="nilaiangka" required="required">
         </div>
     </div> --}}
+    
 @foreach ($ulasan as $u)
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <form action="/ulasan/update/{{$u->id}}" method="post">
     {{ csrf_field() }}
 <input type="hidden" name="id" value="{{ $u->id }}"> <br/>

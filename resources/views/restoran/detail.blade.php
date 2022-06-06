@@ -35,7 +35,7 @@
 
                         ?>
                         @if(Auth::user()->is_restoran !== 1)
-                        <h2>Check in/out</h2>
+                        <h5>Check in/out</h5>
                         <form action="#" method="GET">
                             <input type="text" name="checkin" value="<?php echo (isset($checkin_clicked))?$checkin_clicked:'';?>">
                             <button name="checkin" class="btn btn-primary">Check in</button>

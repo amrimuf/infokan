@@ -17,18 +17,22 @@ class UlasanController extends Controller
     }
     public function tambah($id)
     {
+        
         $ulasan = DB::table('ulasan')->where('id', $id)->get();
         return view('ulasan.tambah', compact('ulasan', 'id'));
     }
 
     public function store(Request $request)
     {
-        DB::table('ulasan')->insert([
-            'review' => $request->review,
-            'user_id' => $request->user_id,
-            'restoran_id' => $request->restoran_id
+        $validatedData = $request->validate([
+            'review' => 'required|min:5|max:255',
         ]);
-        return redirect()->route('ulasan', ['restoran_id' => $request->restoran_id]);
+            DB::table('ulasan')->insert([
+                'review' => $request->review,
+                'user_id' => $request->user_id,
+                'restoran_id' => $request->restoran_id
+            ]);
+            return redirect()->route('ulasan', ['restoran_id' => $request->restoran_id]);
     }
 
     public function edit($id)
@@ -39,10 +43,11 @@ class UlasanController extends Controller
 
     public function update(Request $request)
     {
-        DB::table('ulasan')->where('id', $request->id)->update([
-            
-                'review' => $request->review
-            
+        $validatedData = $request->validate([
+            'review' => 'required|min:5|max:255',
+        ]);
+        DB::table('ulasan')->where('id', $request->id)->update([    
+                'review' => $request->review       
             ]);
         return redirect()->route('ulasan', ['id' => $request->restoran_id]);
         // return dd($request->restoran_id);
