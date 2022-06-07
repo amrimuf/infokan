@@ -19,7 +19,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class='col-lg-9'>
+                    <div class='col'>
                         <div class="form-group">
                             <div class="col-sm-2 control-label"><b>Lokasi </b></div>
                             <div class="col-sm-4 input-group date" id="lokasi">
@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class='col-lg-9'>
+                    <div class='col'>
                         <div class="form-group">
                             <div class="col-sm-2 control-label"><b>Kategori </b></div>
                             <div class="col-sm-4 input-group date" id="kategori">
