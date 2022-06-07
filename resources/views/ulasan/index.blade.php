@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
 @section('content')
 <br />
@@ -7,7 +7,9 @@
 <div class="card w-75 mx-auto">
     <div class="card-header">
         <a href="/resto/view/{{ $id }}" class="btn btn-primary fa fa-angle-left"></a>
+        @if(Auth::user()->is_restoran !== 1)
         <a href="/ulasan/tambah/{{ $id }}" class="btn btn-primary"> +</a>
+        @endif
         <span>Reviews</span>
     </div>
 </div>
@@ -28,9 +30,11 @@
             {{ $r->review }}
             @endif
         </p>
+        @if(Auth::user()->is_restoran !== 1)
         <a href="/ulasan/edit/{{ $r->id }}" class="btn btn-warning">Edit</a>
         |
         <a href="/ulasan/hapus/{{ $r->id }}" onclick="return confirm('Are you sure?')" class="btn btn-danger">Hapus</a>
+        @endif
     </div>
 </div>
 @endif

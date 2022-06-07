@@ -7,8 +7,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+            <a href="/" class="fa fa-angle-left"></a>
                 <div class="card text-center">
-                    <div class="card-header">
+                    <div class="card-header">                   
                         {{-- <p>{{ $u->id }}</p> --}}
                         @foreach($resto as $r)
                         @if($r->user_id == $u->id)
