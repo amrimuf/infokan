@@ -1,20 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-@foreach($resto as $r)
+@foreach($user as $u)
+@if($u->id == $id)
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-<<<<<<< Updated upstream
-                <div class="card-header">
-                    <h5 class="card-title">{{ $r->name }}</h5>
-                    <p class="card-text">{{ $r->kategori }} </p>
-                    <p class="card-text">{{ $r->lokasi }} </p>
-                    <p class="card-text"><a href="#" class="btn btn-primary">Check in</a></p>
-=======
+<<<<<<< HEAD
+            <a href="/" class="fa fa-angle-left"></a>
                 <div class="card text-center">
-                    <div class="card-header">
+                    <div class="card-header">                   
                         {{-- <p>{{ $u->id }}</p> --}}
                         @foreach($resto as $r)
                         @if($r->user_id == $u->id)
@@ -31,7 +27,7 @@
                         {
                             date_default_timezone_set('Asia/Jakarta');
                             $checkin_clicked = date('Y-m-d H:i:s');
-
+                            
                         }
                         else if(isset($_GET['checkout']))
                         {
@@ -41,7 +37,7 @@
 
                         ?>
                         @if(Auth::user()->is_restoran !== 1)
-                        <h2>Check in/out</h2>
+                        <h5>Check in/out</h5>
                         <form action="#" method="GET">
                             <input type="text" name="checkin" value="<?php echo (isset($checkin_clicked))?$checkin_clicked:'';?>">
                             <button name="checkin" class="btn btn-primary">Check in</button>
@@ -52,32 +48,37 @@
                         </form>
                         @endif
             </div>
->>>>>>> Stashed changes
+=======
+                <div class="card-header">
+                    <h5 class="card-title">{{ $r->name }}</h5>
+                    <p class="card-text">{{ $r->kategori }} </p>
+                    <p class="card-text">{{ $r->lokasi }} </p>
+                    <p class="card-text"><a href="#" class="btn btn-primary">Check in</a></p>
+>>>>>>> parent of 3749c9e (addrestoran (unfinished))
                 </div>
-                <div class="card-body">
-                    @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
-                    @endif
+                    <div class="card-body">
+                        @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                        @endif
 
-                    <div class="row">
-                        @foreach($menu as $m)
-                        <div class="col-sm-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $m->nama }}</h5>
-                                    <p class="card-text">{{ $r->deskripsi }}</p>
-
+                        <div class="row">
+                            @foreach($menu as $m)
+                            @if($m->restoran_id == $id)
+                            <div class="col-sm-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        {{-- {{ $m->restoran_id }} --}}
+                                        {{-- {{$m->gambar}} --}}
+                                        <img src="{{ asset('data_file/'.$m->gambar) }} " width="50px" height="50px">
+                                        <h5 class="card-title">{{ $m->nama }}</h5>
+                                    </div>
                                 </div>
                             </div>
-<<<<<<< Updated upstream
-                        </div>
-                        @endforeach
-                        @endforeach
-=======
+<<<<<<< HEAD
                             @endif
-                            @endforeach
+                            @endforeach 
                         </div>
                         @if( Auth::id() == $id)
                         <form action="/menu/store/{{$id}}" method="post" enctype="multipart/form-data">
@@ -92,29 +93,33 @@
                             </div>
                             <input type="hidden" name="user_id" value="{{ $id }}">
                             <input type="submit" class="btn btn-primary" value="Tambah menu">
-                        </form>
+                        </form>   
                         @endif
-                        <a href="/resto/add" class="btn btn-info"> + Tambah info resto</a>
                         {{-- <form action="/upload/proses" method="POST" enctype="multipart/form-data">
                             {{ csrf_field() }}
-
+         
                             <div class="form-group">
                                 <b>File Gambar</b><br/>
                                 <input type="file" name="file">
                             </div>
-
+         
                             <div class="form-group">
                                 <b>Keterangan</b>
                                 <textarea class="form-control" name="keterangan"></textarea>
                             </div>
-
+         
                             <input type="submit" value="Upload" class="btn btn-primary">
                         </form> --}}
->>>>>>> Stashed changes
+=======
+                        </div>
+                        @endforeach
+                        @endforeach
+>>>>>>> parent of 3749c9e (addrestoran (unfinished))
                     </div>
                 </div>
             </div>
-        </div>
     </div>
 </div>
+@endif
+@endforeach
 @endsection

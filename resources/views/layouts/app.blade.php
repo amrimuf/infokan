@@ -16,8 +16,14 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css" />
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <div id="app">
@@ -68,12 +74,6 @@
                             </li>
                         @endguest
                     </ul>
-                    <div class="search">
-                        <form action="/pegawai/cari" method="GET">
-                            <input type="text" class="form-control" name="cari" placeholder="Cari Restoran" value="{{ old('cari') }}">
-                            <input type="submit" class="btn btn-default" value="CARI">
-                        </form>
-                        </div>
                 </div>
             </div>
         </nav>

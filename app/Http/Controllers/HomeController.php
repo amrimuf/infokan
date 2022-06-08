@@ -24,10 +24,14 @@ class HomeController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
         $ip = request()->ip() || '114.125.79.173'; //Dynamic IP address get
         $data = \Location::get($ip);
         $resto = DB::table('restoran')->get();
         $user = DB::table('users')
+=======
+        $resto = DB::table('users')
+>>>>>>> parent of 3749c9e (addrestoran (unfinished))
             ->where('is_restoran', '=', '1')
             ->paginate();
         return view('home', ['resto' => $resto]);
@@ -55,6 +59,7 @@ class HomeController extends Controller
 
 	}
 
+<<<<<<< HEAD
     public function tambahmenu(Request $request)
     {
         $file = $request->file('file');
@@ -130,4 +135,22 @@ class HomeController extends Controller
     //     //->join('check_in_out', 'check_in_out.id', '=', 'restoran.checkinout_id')->where('restoran.checkinout_id', $id)->get();
     //     return view('checkinout', ['users' => $users]);
     // }
+=======
+    //sementara aku taruh sini ya
+    public function edit($id)
+    {
+        $resto = DB::table('restoran')->where('user_id', $id)->get();
+        return view('restoran.editrestoran', ['resto' => $resto]);
+    }
+
+    public function update(Request $request)
+    {
+        DB::table('restoran')->where('user_id', $request->user_id)->update([
+            'deskripsi' => $request->deskripsi,
+            'lokasi' => $request->lokasi,
+            'kategori' => $request->kategori
+        ]);
+        return redirect('/');
+    }
+>>>>>>> parent of 3749c9e (addrestoran (unfinished))
 }
