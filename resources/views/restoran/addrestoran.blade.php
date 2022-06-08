@@ -39,6 +39,7 @@
             <input type="hidden" name="user_id" value="{{ Auth::id() }}">
             <div class="container">
                 <input type="submit" class="btn btn-primary" value="Simpan Data">
+                <a href="/" class="btn btn-primary"> Kembali </a>
             </div>
         </div>
     </form>
