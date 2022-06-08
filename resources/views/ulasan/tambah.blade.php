@@ -40,13 +40,13 @@
     <input type="hidden" name="user_id" value="{{ Auth::id() }}"> <br/>
     <input type="hidden" name="restoran_id" value="{{ $id }}"> <br/>
     <div class="form-group row">
-        <label class="col-sm-2" for="sks"> Review </label>
-        <div class="col-sm-10">
+        <label class="col-sm-2"> Review </label>
+        <div class="col-sm">
             <textarea rows="4" cols="50" name="review" class="comment" required="required"></textarea>
         </div>
     </div>
 
-    <div class="d-flex text-center">
+    <div class="text-center">
              <button type="submit" class="btn btn-primary"> Simpan Data </button>
              <a href="/ulasan/{{ $id }}" class="btn btn-primary"> Kembali </a>
     </div>
