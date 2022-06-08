@@ -20,7 +20,9 @@
                         <a href="/ulasan/{{$r->user_id}}" class="btn btn-primary"> Reviews</a>
                         {{-- <div class="card text-center"><a href="/checkinout" class="btn btn-primary">Check in/out</a></div> --}}
                         @endif
+                        <!-- ($r->user_id == $u->id) -->
                         @endforeach
+                        <!-- ($resto as $r) -->
                         <?php
                         if(isset($_GET['checkin']))
                         {
@@ -72,15 +74,17 @@
                         </div>
                         @endif
                         @endforeach
+                        @if(Auth::user()->is_restoran == 1)
+                        @if( Auth::id() == $id)
                         <div class="col-sm-6">
                             <div class="card">
                                 <div class="card-body">
-                                    @if( Auth::id() == $id)
                                     <form action="/menu/store/{{$id}}" method="post" enctype="multipart/form-data">
                                         {{ csrf_field() }}
                                         <div class="form-group">
                                             <span>File Gambar</span><br />
-                                            <input type="file" name="file" accept="image/png, image/jpeg" required="required">
+                                            <input type="file" name="file" accept="image/png, image/jpeg"
+                                                required="required">
                                             <div class="form-group">
                                                 <span>Nama Menu</span>
                                                 <input type="text" class="form-control" name="menu" required="required">
@@ -92,13 +96,13 @@
                                         </div> <!-- text-center -->
                                     </form>
 
-                                </div>
+                                </div> <!-- card-body -->
+                                @endif <!-- Auth::id() == $id -->
+                            </div> <!-- card -->
+                        </div> <!-- col-sm-6 -->
+                    </div> <!-- row -->
 
-                            </div>
-                        </div>
-                    </div>
-
-                    @endif
+                    @endif <!-- Auth::user()->is_restoran == 1 -->
 
                 </div>
             </div>

@@ -5,12 +5,13 @@
 <br />
 <br />
 <div class="card w-75 mx-auto">
-    <div class="card-header">
-        <a href="/resto/view/{{ $id }}" class="btn btn-primary fa fa-angle-left"></a>
+    <div class="card-header d-flex align-items-center">
+        <a href="/resto/view/{{ $id }}" class="p-2 btn btn-sm btn btn-primary fa fa-angle-left"></a>
+        <div class="p-2 flex-fill">Reviews</div>
         @if(Auth::user()->is_restoran !== 1)
-        <a href="/ulasan/tambah/{{ $id }}" class="btn btn-primary"> +</a>
+        <a href="/ulasan/tambah/{{ $id }}" class="p-2 btn btn-sm btn btn-primary"> +</a>
         @endif
-        <span>Reviews</span>
+        
     </div>
 </div>
 @foreach($review as $r)

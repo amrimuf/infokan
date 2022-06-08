@@ -42,10 +42,19 @@
                 </div>
                 <br>
                 <div class="container">
-                    <input type="submit" class="btn btn-primary" value="Simpan Data">
-                    <a href="/" class="btn btn-primary"> Kembali </a>
+                    <div class="row">
+                        <input type="submit" class="btn btn-primary" value="Simpan Data">
+                    </div>
+                    <br>
+                    <div class="row">
+                        <a href="/resto/delete/{{ $r->id }}"
+                            onclick="return confirm('Are you sure want to delete this restaurant?')" class="btn btn-danger"
+                            role="button">Hapus</a>
+                        <a href="/" class="btn btn-primary"> Kembali </a>
+                    </div>
                 </div>
             </div>
         </form>
+        <br>
     @endforeach
 @endsection

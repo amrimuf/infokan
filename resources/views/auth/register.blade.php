@@ -14,7 +14,7 @@
                         <div class="form-group">
                             <div>Are you signing up as a restaurant?</div>
                             <div class="form-check">
-                                <input class="resto form-check-input" type="radio" name="is_restoran" id="flexRadioDefault1" value="1">
+                                <input class="resto form-check-input" type="radio" name="is_restoran" id="flexRadioDefault1" value="1" required="required">
                                 <label class="form-check-label" for="flexRadioDefault1">
                                   Yes
                                 </label>
