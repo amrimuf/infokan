@@ -11,7 +11,7 @@
         @if(Auth::user()->is_restoran !== 1)
         <a href="/ulasan/tambah/{{ $id }}" class="p-2 btn btn-sm btn btn-primary"> +</a>
         @endif
-        
+
     </div>
 </div>
 @foreach($review as $r)
@@ -31,11 +31,15 @@
             {{ $r->review }}
             @endif
         </p>
+        
         @if(Auth::user()->is_restoran !== 1)
+        @if (Auth::id() == $r->user_id)
         <a href="/ulasan/edit/{{ $r->id }}" class="btn btn-warning">Edit</a>
         |
         <a href="/ulasan/hapus/{{ $r->id }}" onclick="return confirm('Are you sure?')" class="btn btn-danger">Hapus</a>
         @endif
+        @endif
+        
     </div>
 </div>
 @endif
