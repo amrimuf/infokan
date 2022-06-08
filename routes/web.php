@@ -20,7 +20,7 @@ Route::get('/layouts/app','HomeController@cari');
 Route::get('/resto/add','RestoranController@add');
 Route::get('/resto/store','RestoranController@store');
 Route::get('/resto/edit/{id}','RestoranController@edit');
-Route::post('/restoran/update','RestoranController@update');
+Route::post('/resto/update','RestoranController@update');
 Route::get('/checkinout', 'CheckInOutController@display');
 
 //by leo

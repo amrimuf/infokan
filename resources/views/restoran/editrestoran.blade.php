@@ -2,7 +2,7 @@
 
 @section('content')
     @foreach ($resto as $r)
-        <form action="/restoran/update" method="post">
+        <form action="/resto/update" method="post">
             {{ csrf_field() }}
             <input type="hidden" name="user_id" value="{{ $r->user_id }}">
 
