@@ -24,14 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-<<<<<<< Updated upstream
-        $resto = DB::table('users')
-=======
         $ip = request()->ip() || '114.125.79.173'; //Dynamic IP address get
         $data = \Location::get($ip);
         $resto = DB::table('restoran')->get();
         $user = DB::table('users')
->>>>>>> Stashed changes
             ->where('is_restoran', '=', '1')
             ->paginate();
         return view('home', ['resto' => $resto]);
@@ -59,24 +55,6 @@ class HomeController extends Controller
 
 	}
 
-<<<<<<< Updated upstream
-    //sementara aku taruh sini ya
-    public function edit($id)
-    {
-        $resto = DB::table('restoran')->where('user_id', $id)->get();
-        return view('restoran.editrestoran', ['resto' => $resto]);
-    }
-
-    public function update(Request $request)
-    {
-        DB::table('restoran')->where('user_id', $request->user_id)->update([
-            'deskripsi' => $request->deskripsi,
-            'lokasi' => $request->lokasi,
-            'kategori' => $request->kategori
-        ]);
-        return redirect('/');
-    }
-=======
     public function tambahmenu(Request $request)
     {
         $file = $request->file('file');
@@ -152,5 +130,4 @@ class HomeController extends Controller
     //     //->join('check_in_out', 'check_in_out.id', '=', 'restoran.checkinout_id')->where('restoran.checkinout_id', $id)->get();
     //     return view('checkinout', ['users' => $users]);
     // }
->>>>>>> Stashed changes
 }
