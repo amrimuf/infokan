@@ -25,7 +25,7 @@ class HomeController extends Controller
     public function index()
     {
         $ip = request()->ip() || '114.125.79.173'; //Dynamic IP address get
-        $data = \Location::get($ip);                
+        $data = \Location::get($ip);
         $resto = DB::table('restoran')->get();
         $user = DB::table('users')
             ->where('is_restoran', '=', '1')
@@ -59,13 +59,6 @@ class HomeController extends Controller
 
 	}
 
-    //sementara aku taruh sini ya
-    public function edit($id)
-    {
-        $resto = DB::table('restoran')->where('user_id', $id)->get();
-        return view('restoran.editrestoran', ['resto' => $resto]);
-    }
-
     public function tambahmenu(Request $request)
     {
         $file = $request->file('file');
@@ -82,52 +75,42 @@ class HomeController extends Controller
         return redirect()->back();
     }
 
-    public function update(Request $request)
-    {
-        DB::table('restoran')->where('user_id', $request->user_id)->update([
-            'deskripsi' => $request->deskripsi,
-            'lokasi' => $request->lokasi,
-            'kategori' => $request->kategori
-        ]);
-        return redirect('/');
-    }
-
     //by leo
     public function upload(){
 		return view('upload');
 	}
- 
+
 	public function proses_upload(Request $request){
 		$this->validate($request, [
 			'file' => 'required',
 			'keterangan' => 'required',
 		]);
- 
+
 		// menyimpan data file yang diupload ke variabel $file
 		$file = $request->file('file');
- 
+
       	        // nama file
 		echo 'File Name: '.$file->getClientOriginalName();
 		echo '<br>';
- 
+
       	        // ekstensi file
 		echo 'File Extension: '.$file->getClientOriginalExtension();
 		echo '<br>';
- 
+
       	        // real path
 		echo 'File Real Path: '.$file->getRealPath();
 		echo '<br>';
- 
+
       	        // ukuran file
 		echo 'File Size: '.$file->getSize();
 		echo '<br>';
- 
+
       	        // tipe mime
 		echo 'File Mime Type: '.$file->getMimeType();
- 
+
       	        // isi dengan nama folder tempat kemana file diupload
 		$tujuan_upload = 'data_file';
- 
+
                 // upload file
 		$file->move($tujuan_upload,$file->getClientOriginalName());
 	}

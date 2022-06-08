@@ -9,7 +9,7 @@
             <div class="card">
             <a href="/" class="fa fa-angle-left"></a>
                 <div class="card text-center">
-                    <div class="card-header">                   
+                    <div class="card-header">
                         {{-- <p>{{ $u->id }}</p> --}}
                         @foreach($resto as $r)
                         @if($r->user_id == $u->id)
@@ -26,7 +26,7 @@
                         {
                             date_default_timezone_set('Asia/Jakarta');
                             $checkin_clicked = date('Y-m-d H:i:s');
-                            
+
                         }
                         else if(isset($_GET['checkout']))
                         {
@@ -69,7 +69,7 @@
                                 </div>
                             </div>
                             @endif
-                            @endforeach 
+                            @endforeach
                         </div>
                         @if( Auth::id() == $id)
                         <form action="/menu/store/{{$id}}" method="post" enctype="multipart/form-data">
@@ -84,21 +84,21 @@
                             </div>
                             <input type="hidden" name="user_id" value="{{ $id }}">
                             <input type="submit" class="btn btn-primary" value="Tambah menu">
-                        </form>   
+                        </form>
                         @endif
                         {{-- <form action="/upload/proses" method="POST" enctype="multipart/form-data">
                             {{ csrf_field() }}
-         
+
                             <div class="form-group">
                                 <b>File Gambar</b><br/>
                                 <input type="file" name="file">
                             </div>
-         
+
                             <div class="form-group">
                                 <b>Keterangan</b>
                                 <textarea class="form-control" name="keterangan"></textarea>
                             </div>
-         
+
                             <input type="submit" value="Upload" class="btn btn-primary">
                         </form> --}}
                     </div>

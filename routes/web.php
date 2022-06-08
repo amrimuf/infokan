@@ -17,8 +17,11 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/resto/view/{id}', 'HomeController@detail');
 Route::get('/cari','HomeController@cari');
 
-Route::get('/resto/edit/{id}','HomeController@edit');
-Route::post('/restoran/update','HomeController@update');
+Route::get('/resto/add','RestoController@add');
+Route::post('/resto/store','RestoController@store');
+Route::get('/resto/edit/{id}','RestoController@edit');
+Route::post('/resto/update','RestoController@update');
+Route::get('/resto/delete/{id}','RestoController@delete');
 Route::get('/checkinout', 'CheckInOutController@display');
 
 //by leo
