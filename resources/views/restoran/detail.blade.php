@@ -7,7 +7,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+<<<<<<< Updated upstream
             <a href="/" class="fa fa-angle-left"></a>
+=======
+                <a href="/" class="fa fa-angle-left fa-3x"></a>
+>>>>>>> Stashed changes
                 <div class="card text-center">
                     <div class="card-header">
                         {{-- <p>{{ $u->id }}</p> --}}
@@ -55,6 +59,7 @@
                         </div>
                         @endif
 
+<<<<<<< Updated upstream
                         <div class="row">
                             @foreach($menu as $m)
                             @if($m->restoran_id == $id)
@@ -66,6 +71,18 @@
                                         <img src="{{ asset('data_file/'.$m->gambar) }} " width="50px" height="50px">
                                         <h5 class="card-title">{{ $m->nama }}</h5>
                                     </div>
+=======
+                    <div class="row">
+                        @foreach($menu as $m)
+                        @if($m->restoran_id == $id)
+                        <div class="col-sm-6 mt-1 mb-1">
+                            <div class="card">
+                                <div class="card-body">
+                                    {{-- {{ $m->restoran_id }} --}}
+                                    {{-- {{$m->gambar}} --}}
+                                    <img src="{{ asset('data_file/'.$m->gambar) }} " width="50px" height="50px">
+                                    <h5 class="card-title">{{ $m->nama }}</h5>
+>>>>>>> Stashed changes
                                 </div>
                             </div>
                             @endif
