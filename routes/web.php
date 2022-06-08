@@ -17,10 +17,6 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/resto/view/{id}', 'HomeController@detail');
 Route::get('/layouts/app','HomeController@cari');
 
-<<<<<<< Updated upstream
-Route::get('/restoran/edit/{id}','HomeController@edit');
-Route::post('/restoran/update','HomeController@update');
-=======
 Route::get('/resto/add','RestoranController@add');
 Route::get('/resto/store','RestoranController@store');
 Route::get('/resto/edit/{id}','RestoranController@edit');
@@ -39,4 +35,3 @@ Route::get('/upload', 'HomeController@upload');
 Route::post('/upload/proses', 'HomeController@proses_upload');
 
 Route::post('/menu/store/{id}', 'HomeController@tambahmenu');
->>>>>>> Stashed changes
