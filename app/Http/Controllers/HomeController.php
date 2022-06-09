@@ -50,13 +50,16 @@ class HomeController extends Controller
 		$cari = $request->cari;
 
 
-		$users = DB::table('users')
+		$user = DB::table('users')
 		->where('name','like',"%".$cari."%")
 		->paginate();
 
 
-		return view('home',['users' => $users]);
+        $ip = request()->ip() || '114.125.79.173'; //Dynamic IP address get
+        $data = \Location::get($ip);
+        $resto = DB::table('restoran')->get();
 
+        return view('home', compact('data', 'resto', 'user' , 'cari'));
 	}
 
     public function tambahmenu(Request $request)
