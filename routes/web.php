@@ -31,8 +31,6 @@ Route::post('/ulasan/store/{id}','UlasanController@store');
 Route::get('/ulasan/edit/{id}','UlasanController@edit');
 Route::post('/ulasan/update/{id}','UlasanController@update');
 Route::get('/ulasan/hapus/{id}','UlasanController@hapus');
-
-Route::get('/upload', 'HomeController@upload');
-Route::post('/upload/proses', 'HomeController@proses_upload');
+//by leo
 
 Route::post('/menu/store/{id}', 'HomeController@tambahmenu');

@@ -9,24 +9,7 @@
 }
 
 </style>
-@section('content')
-
-
-
-    {{-- <div class="form-group row">
-        <label class="col-sm-2" for="nrp">NRP </label>
-        <div class="col-sm-6">
-            <input type="text"  class="form-control" name="nrp" required="required">
-        </div>
-    </div>
-
-    <div class="form-group row">
-        <label class="col-sm-2" for="nilaiangka"> Nilai Angka </label>
-        <div class="col-sm-6">
-            <input type="text"  class="form-control" name="nilaiangka" required="required">
-        </div>
-    </div> --}}
-    
+@section('content')   
 @foreach ($ulasan as $u)
 @if ($errors->any())
     <div class="alert alert-danger">

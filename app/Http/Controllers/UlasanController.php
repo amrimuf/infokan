@@ -50,7 +50,6 @@ class UlasanController extends Controller
                 'review' => $request->review       
             ]);
         return redirect()->route('ulasan', ['id' => $request->restoran_id]);
-        // return dd($request->restoran_id);
 
     }
 
